@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ace Editor Autocomplete Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.14/ace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.14/ext-language_tools.js"></script>
+</head>
+<body>
+    <div id="editor" style="height: 500px; width: 100%;"></div>
+
+    <script>
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/monokai");
+        editor.session.setMode("ace/mode/javascript");
+
+        // Enable language tools
+        ace.require("ace/ext/language_tools");
+        editor.setOptions({
+            enableBasicAutocompletion: true,
+            enableLiveAutocompletion: true,
+            enableSnippets: true
+        });
+
+        // // Custom completer
+        // var customCompleter = {
+        //     getCompletions: function(editor, session, pos, prefix, callback) {
+        //         var wordList = ["foo", "bar", "baz"];
+        //         callback(null, wordList.map(function(word) {
+        //             return {
+        //                 caption: word,
+        //                 value: word,
+        //                 meta: "custom"
+        //             };
+        //         }));
+        //     }
+        // };
+
+        // editor.completers = [customCompleter];
+    </script>
+</body>
+</html>
